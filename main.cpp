@@ -89,7 +89,7 @@ void consultas()
 	cout<<"\t\t\t"<<endl;
 	cout<<"\t\t\t    CONSULTAS    "<<endl;
 	cout<<"\t\t\t"<<endl;
-	cout<<"\t\t\t 1. Consulta Empleados"<<endl;
+	cout<<"\t\t\t 1. Consulta Alumnos"<<endl;
 	cout<<"\t\t\t 2. Regresar"<<endl;
 
 	cout<<"\t\t\t"<<endl;
