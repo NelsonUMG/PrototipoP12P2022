@@ -543,109 +543,113 @@ void Persona::consultarRegistro( fstream &leerDeArchivo )
 // mostrar registro individual
 void Persona::mostrarLinea( ostream &salida, const Persona &registro )
 {
-   salida << left << setw( 10 ) << registro.obtenerNumeroId()
+   salida << left << setw( 10 ) << registro.obtenerNumeroCUI()
           << setw( 16 ) << registro.obtenerApellido().data()
           << setw( 14 ) << registro.obtenerPrimerNombre().data()
           << setw( 14 ) << registro.obtenerDpi().data()
-          << setw( 21 ) << registro.obteneraula().data()
+          << setw( 21 ) << registro.obtenerCodFacultad().data()
           << setw( 31 ) << registro.obteneraula().data()
           << setw( 9 ) << registro.obtenerTelefono().data()
-          << setw( 4 ) << registro.obtenerDireccion().data()
+          << setw( 41 ) << registro.obtenerFacultad().data()
           << setw( 2 ) << registro.obtenerGenero().data()<<endl;
+          << setw( 36 ) << registro.obtenerSede().data()<<endl;
+          << setw( 33 ) << registro.obtenerCarrera().data()<<endl;
+
 
 }
 void Persona::mostrarLineaPantalla( const Persona &registro )
 {
-   cout << left << setw( 10 ) << registro.obtenerNumeroId()
+   cout <<<< left << setw( 10 ) << registro.obtenerNumeroCUI()
           << setw( 16 ) << registro.obtenerApellido().data()
           << setw( 14 ) << registro.obtenerPrimerNombre().data()
           << setw( 14 ) << registro.obtenerDpi().data()
-          << setw( 21 ) << registro.obtenerDepartamento().data()
-          << setw( 31 ) << registro.obtenerEmail().data()
+          << setw( 21 ) << registro.obtenerCodFacultad().data()
+          << setw( 31 ) << registro.obteneraula().data()
           << setw( 9 ) << registro.obtenerTelefono().data()
-          << setw( 4 ) << registro.obtenerDireccion().data()
+          << setw( 41 ) << registro.obtenerFacultad().data()
           << setw( 2 ) << registro.obtenerGenero().data()<<endl;
-}
+          << setw( 36 ) << registro.obtenerSede().data()<<endl;
+          << setw( 33 ) << registro.obtenerCarrera().data()<<endl;
 
 // obtener el valor del número ID del usuario
-int Persona::obtenerId( const char * const indicador )
+int Persona::obtenerCUI( const char * const indicador )
 {
-   int numeroId;
+   int numeroCUI;
 
    do {
       cout << indicador << " (1 - 1000): ";
-      cin >> numeroId;
+      cin >> numeroCUI;
 
-   } while ( numeroId < 1 || numeroId > 1000 );
+   } while ( numeroCUI < 1 || numeroCUI > 1000 );
 
-   return numeroId;
+   return numeroCUI;
 
 }
 void Persona::crearArchivoEmpleados()
 {
-    ofstream empleadosSalida( "empleados.dat", ios::out | ios::binary );
+    ofstream alumnosSalida( "alumnos.dat", ios::out | ios::binary );
    // salir del programa si ofstream no pudo abrir el archivo
-   if ( !empleadosSalida ) {
+   if ( !alumnosSalida ) {
       cerr << "No se pudo abrir el archivo." << endl;
       exit( 1 );
 
    }
 
    // crear espacios sin informacion
-   Persona empleadoEnBlanco;
+   Persona alumnoEnBlanco;
 
    for ( int i = 0; i < 1000; i++ )
-      empleadosSalida.write(
-         reinterpret_cast< const char * >( &empleadoEnBlanco ),
+      alumnosSalida.write(
+         reinterpret_cast< const char * >( &alumnoEnBlanco ),
          sizeof( Persona ) );
 }
 
 fstream Persona::inicioArchivo(){
-    Persona empleado;
-        fstream empleadosEntradaSalida( "empleados.dat", ios::in | ios::out | ios::binary);
+    Persona alumno;
+        fstream alumnosEntradaSalida( "alumnos.dat", ios::in | ios::out | ios::binary);
 
    // salir del programa si fstream no puede abrir el archivo
-    if ( !empleadosEntradaSalida ) {
+    if ( !alumnosEntradaSalida ) {
       cerr << "No se pudo abrir el archivo." << endl;
-      empleado.crearArchivoEmpleados();
+      empleado.crearArchivoAlumnos();
       cout <<  "Archivo creado satisfactoriamente, pruebe de nuevo";
       exit ( 1 );
 
     }
-    return empleadosEntradaSalida;
+    return alumnosEntradaSalida;
 }
 
 //Funcion para encontrar empleado especifico
 void Persona::busquedaRegistro(fstream &actualizarArchivo)
 {
 //Se obtiene el ID a buscar
-       int numeroId = obtenerId( "Escriba el ID del empleado a buscar" );
+       int numeroCUI = obtenerCUI( "Escriba el CUI del alumno a buscar" );
 
    // desplazar el apuntador de posición de archivo hasta el registro correcto en el archivo
    actualizarArchivo.seekg(
-      ( numeroId - 1 ) * sizeof( Persona ) );
+      ( numeroCUI - 1 ) * sizeof( Persona ) );
 
    // leer el primer registro del archivo
-   Persona empleado;
-   actualizarArchivo.read( reinterpret_cast< char * >( &empleado ),
+   Persona alumno;
+   actualizarArchivo.read( reinterpret_cast< char * >( &alumno ),
       sizeof( Persona ) );
-if ( empleado.obtenerNumeroId() != 0 ) {
+if ( alumno.obtenerNumeroCUI() != 0 ) {
       //MOstrar la informacion obtenida
-      cout << left << setw( 10 ) << "ID" << setw( 16 )
-       << "Apellido" << setw( 14 ) << "Primer nombre" <<
-       setw( 14 )<<"DPI"<<setw(21)<<"Departamento"<<setw(31)<<"Email"
-       <<setw( 9 )<< "Telefono"<<setw(10)<<"Zona"<<setw(5)<<"Genero" << endl;
-      mostrarLinea( cout, empleado );
+     cout << left << setw( 10 ) << "CUI" << setw( 16 )
+       << "Apellido" << setw( 14 ) << "Primer nombre"
+       << setw( 14 ) << "Dpi" <<setw( 21 )<<"Codigo de Facultad"<<setw( 31 )<<"Aula"
+       <<setw( 9 )<<"Telefono"<<setw( 10 )<<"Zona"<<setw( 5 )<<"Genero"<<setw( 36 )<<"Sede"<<setw( 33 )<<"Carrera"
+       <<setw( 41 )<<"Facultad"<<endl;
 
       // desplazar el apuntador de posición de archivo hasta el registro correcto en el archivo
       actualizarArchivo.seekp(
-         ( numeroId - 1 ) * sizeof( Persona ) );
+         ( numeroCUI - 1 ) * sizeof( Persona ) );
 
    }
 
    // mostrar error si el ID no existe
    else
-      cerr << "El ID #" << numeroId
+      cerr << "El CUI #" << numeroCUI
          << " aun no existe" << endl;
 
 }
