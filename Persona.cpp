@@ -283,7 +283,7 @@ void Persona::imprimirRegistro( fstream &leerDeArchivo )
 // actualizar el saldo en el registro
 void Persona::actualizarRegistro( fstream &actualizarArchivo )
 {
-   // obtener el número de ID a actualizar
+   // obtener el número de CUI a actualizar
    int numeroCUI = obtenerNumeroCUI( "Escriba el CUI del alumno a modificar" );
 
    // desplazar el apuntador de posición de archivo hasta el registro correcto en el archivo

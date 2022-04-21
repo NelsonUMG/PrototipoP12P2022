@@ -9,3 +9,20 @@
 
 1650558777 c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\usuario.h
 
+1650574818 source:c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\main.cpp
+	<iostream>
+	"Persona.h"
+	"Facultad.h"
+	"Usuario.h"
+	<conio.h>
+	<cstdlib>
+	<iomanip>
+	<fstream>
+
+1650574993 c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\persona.h
+	<iostream>
+	<conio.h>
+	<fstream>
+	<iomanip>
+	<cstdlib>
+

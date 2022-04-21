@@ -1,8 +1,8 @@
 #include <iostream>
+#include<conio.h>
 #include "Persona.h"
 #include "Facultad.h"
 #include "Usuario.h"
-#include<conio.h>
 using std::cout;
 using std::cerr;
 using std::cin;
@@ -12,12 +12,23 @@ using std::left;
 using std::right;
 using std::fixed;
 using std::showpoint;
+
+#include <ctime>
+#include <vector>
+#include <fstream>
+
 using std::ofstream;
 using std::ostream;
 using std::fstream;
+
+#include <iomanip>
+
 using std::setw;
 using std::setprecision;
+
+#include <cstdlib>
 using namespace std;
+
 
 //Declaracion de las funciones para abrir los menus
 void consultas();
@@ -38,9 +49,7 @@ int choice;
 	cout<<"\t\t\t"<<endl;
 	cout<<"\t\t\t 1. Consultas"<<endl;
 	cout<<"\t\t\t 2. Gestion Alumnos"<<endl;
-	cout<<"\t\t\t 3. Seguridad"<<endl;
-	cout<<"\t\t\t 4. Salir"<<endl;
-
+	cout<<"\t\t\t 3. Salir"<<endl;
 	cout<<"\t\t\t"<<endl;
 	cout<<"\t\t\tOpcion a escoger:[1/2/3/4/5]"<<endl;
 	cout<<"\t\t\t"<<endl;
@@ -119,12 +128,12 @@ void gestionAlumno()
 	cout<<"\t\t\t"<<endl;
 	cout<<"\t\t\t    GESTION EMPLEADOS    "<<endl;
 	cout<<"\t\t\t"<<endl;
-	cout<<"\t\t\t 1. Consulta Empleados"<<endl;
-	cout<<"\t\t\t 2. Busqueda de Empleados"<<endl;
-	cout<<"\t\t\t 3. Agregar Empleados"<<endl;
-	cout<<"\t\t\t 4. Modificar Empleados"<<endl;
-	cout<<"\t\t\t 5. Eliminar Empleados"<<endl;
-	cout<<"\t\t\t 6. Imprimir Archivo Empleados"<<endl;
+	cout<<"\t\t\t 1. Consulta Alumno"<<endl;
+	cout<<"\t\t\t 2. Busqueda de Alumnoss"<<endl;
+	cout<<"\t\t\t 3. Agregar Alumnos"<<endl;
+	cout<<"\t\t\t 4. Modificar Alumnoss"<<endl;
+	cout<<"\t\t\t 5. Eliminar Alumnos"<<endl;
+	cout<<"\t\t\t 6. Imprimir Archivo Alumnos"<<endl;
 	cout<<"\t\t\t 7. Regresar"<<endl;
 
 	cout<<"\t\t\t"<<endl;
@@ -136,7 +145,7 @@ void gestionAlumno()
     switch(choice)
     {
     case 1:
-        alumnos.consultarRegistro(alumnoEntradaSalida);
+        alumno.consultarRegistro(alumnosEntradaSalida);
         cout << "" << endl;
         cout << "Presiona enter para continuar" << endl;
 		break;
