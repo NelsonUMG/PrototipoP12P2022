@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1650558900 source:c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\facultad.cpp
+	"Facultad.h"
+
+1650558900 c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\facultad.h
+
+1650558777 source:c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\usuario.cpp
+	"Usuario.h"
+
+1650558777 c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\usuario.h
+
+1650575088 source:c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\main.cpp
+	<iostream>
+	<conio.h>
+	"Persona.h"
+	"Facultad.h"
+	"Usuario.h"
+	<ctime>
+	<vector>
+	<fstream>
+	<iomanip>
+	<cstdlib>
+
+1650574993 c:\users\nelso\desktop\software de corporaciÓn educativa\corporación educativa\persona.h
+	<iostream>
+	<conio.h>
+	<fstream>
+	<iomanip>
+	<cstdlib>
+
